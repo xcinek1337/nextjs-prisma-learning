@@ -1,4 +1,5 @@
 import { createPost } from '@/actions/actions';
+import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs/components';
 
 export default async function Page() {
 	return (
@@ -7,16 +8,25 @@ export default async function Page() {
 
 			<form
 				action={createPost}
-				className='h-10 space-x-2 mt-10'
+				className='flex flex-col max-w-[400px] mx-auto gap-2 my-10'
 			>
 				<input
-					className='border rounded px-3 h-full'
+					className='border rounded px-3 h-10'
 					type='text'
 					name='title'
 					placeholder='title for new post...'
 					required
 				/>
-				<button className='h-full bg-blue-500 px-5 rounded text-white'>suybbmit</button>
+				<textarea
+					name='body'
+					placeholder='Body content for new post'
+					className='border rounded px-3 py-2'
+					rows={6}
+					required
+				/>
+				<button className='h-10 bg-blue-500 px-5 rounded text-white'>suybbmit</button>
+
+				<LogoutLink className='bg-black text-white px-3 py-2 rounded'>Log Out</LogoutLink>
 			</form>
 		</main>
 	);
