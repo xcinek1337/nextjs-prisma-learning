@@ -7,7 +7,7 @@ export default async function PostsList() {
 
 	return (
 		<ul>
-			{data.posts.map((post) => {
+			{data.posts.map((post ) => {
 				return (
 					<li
 						className='mb-5'
