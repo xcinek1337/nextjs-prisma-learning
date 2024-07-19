@@ -1,5 +1,7 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const navLinks = [
 	{ href: '/', label: 'Home' },
@@ -8,6 +10,8 @@ const navLinks = [
 ];
 
 export const Header = () => {
+	const pathname = usePathname();
+
 	return (
 		<header className='flex justify-between items-center py-4 px-7 border-b'>
 			<Link href={'/'}>
@@ -26,7 +30,7 @@ export const Header = () => {
 						return (
 							<li key={link.href}>
 								<Link
-									className='text-zinc-400'
+									className={`${pathname === link.href ? "text-zinc-900 font-semibold" : ""} text-zinc-400` }
 									href={link.href}
 								>
 									{link.label}
